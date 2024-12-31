@@ -1,0 +1,170 @@
+tedarikci id,kalite,hatali_urun,fiyat,hiz,guvenilir_hizmet,belge,talep,stok,gecmis_donem,kapasite,tavsiye
+1,iyi,orta,iyi,cok iyi,iyi,orta,iyi,cok iyi,iyi,cok iyi,Evet
+2,orta,iyi,iyi,cok iyi,cok iyi,cok iyi,iyi,iyi,iyi,iyi,Evet
+3,orta,orta,orta,iyi,orta,orta,iyi,orta,kotu,iyi,Evet
+4,iyi,iyi,iyi,cok iyi,cok iyi,cok iyi,cok iyi,iyi,iyi,cok iyi,Evet
+5,cok kotu,kotu,orta,orta,kotu,cok kotu,orta,iyi,kotu,orta,Hayir
+6,orta,iyi,iyi,cok iyi,cok iyi,orta,iyi,iyi,iyi,cok iyi,Evet
+7,cok iyi,orta,iyi,orta,orta,iyi,kotu,iyi,orta,iyi,Evet
+8,iyi,iyi,iyi,cok iyi,cok iyi,orta,iyi,iyi,iyi,cok iyi,Evet
+9,kotu,kotu,orta,iyi,iyi,kotu,orta,iyi,kotu,iyi,Hayir
+10,iyi,cok iyi,iyi,cok iyi,cok iyi,orta,cok iyi,cok iyi,cok iyi,cok iyi,Evet
+11,orta,iyi,iyi,iyi,orta,orta,iyi,iyi,iyi,iyi,Evet
+12,kotu,kotu,kotu,cok kotu,cok kotu,kotu,kotu,orta,orta,kotu,Hayir
+13,iyi,cok iyi,cok iyi,iyi,iyi,orta,iyi,cok iyi,iyi,iyi,Evet
+14,cok iyi,cok iyi,orta,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,Evet
+15,iyi,orta,orta,orta,iyi,iyi,iyi,iyi,iyi,cok iyi,Evet
+16,iyi,orta,iyi,cok iyi,iyi,orta,iyi,cok iyi,iyi,cok iyi,Evet
+17,iyi,cok iyi,iyi,iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,Evet
+18,orta,iyi,iyi,iyi,iyi,iyi,iyi,cok iyi,iyi,iyi,Evet
+19,kotu,cok kotu,iyi,iyi,orta,orta,iyi,orta,kotu,iyi,Hayir
+20,iyi,iyi,iyi,iyi,cok iyi,orta,iyi,iyi,iyi,iyi,Evet
+21,iyi,orta,iyi,iyi,iyi,iyi,cok iyi,cok iyi,iyi,iyi,Evet
+22,iyi,orta,orta,iyi,orta,orta,orta,iyi,iyi,iyi,Evet
+23,iyi,iyi,iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,iyi,iyi,Evet
+24,orta,orta,kotu,iyi,orta,kotu,orta,orta,kotu,orta,Hayir
+25,iyi,cok iyi,iyi,cok iyi,cok iyi,iyi,cok iyi,cok iyi,cok iyi,cok iyi,Evet
+26,iyi,iyi,orta,cok iyi,iyi,orta,iyi,iyi,iyi,iyi,Evet
+27,iyi,iyi,orta,iyi,iyi,orta,iyi,iyi,iyi,iyi,Evet
+28,kotu,orta,orta,orta,kotu,iyi,kotu,orta,kotu,orta,Hayir
+29,orta,iyi,iyi,cok iyi,iyi,iyi,orta,orta,iyi,kotu,Evet
+30,iyi,iyi,iyi,cok iyi,cok iyi,kotu,orta,cok iyi,iyi,iyi,Evet
+31,kotu,iyi,iyi,orta,orta,orta,kotu,orta,kotu,kotu,Hayir
+32,iyi,kotu,orta,cok iyi,cok iyi,cok iyi,orta,cok iyi,cok iyi,cok iyi,Evet
+33,cok iyi,orta,kotu,iyi,iyi,iyi,orta,orta,iyi,orta,Evet
+34,kotu,iyi,iyi,kotu,kotu,kotu,kotu,orta,kotu,orta,Hayir
+35,iyi,orta,cok kotu,orta,orta,kotu,kotu,iyi,orta,orta,Hayir
+36,orta,kotu,kotu,cok kotu,orta,iyi,orta,cok iyi,orta,iyi,Hayir
+37,kotu,iyi,orta,kotu,kotu,kotu,orta,orta,kotu,orta,Hayir
+38,orta,cok kotu,orta,kotu,iyi,iyi,orta,iyi,orta,kotu,Hayir
+39,cok iyi,kotu,kotu,iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,orta,Evet
+40,iyi,kotu,iyi,orta,orta,iyi,iyi,kotu,orta,orta,Evet
+41,orta,kotu,kotu,kotu,kotu,orta,kotu,orta,kotu,orta,Hayir
+42,orta,iyi,kotu,iyi,cok iyi,iyi,iyi,orta,iyi,orta,Evet
+43,cok kotu,orta,iyi,kotu,kotu,cok kotu,kotu,kotu,kotu,orta,Hayir
+44,cok iyi,kotu,orta,orta,orta,orta,iyi,orta,cok iyi,orta,Evet
+45,orta,kotu,cok kotu,orta,iyi,cok kotu,orta,kotu,orta,orta,Evet
+46,cok iyi,orta,iyi,orta,orta,cok kotu,orta,orta,iyi,orta,Evet
+47,iyi,orta,cok kotu,kotu,iyi,cok kotu,iyi,cok iyi,orta,kotu,Hayir
+48,cok kotu,kotu,kotu,orta,kotu,orta,orta,iyi,kotu,iyi,Hayir
+49,iyi,orta,orta,iyi,cok iyi,iyi,orta,iyi,iyi,orta,Evet
+50,iyi,orta,orta,iyi,iyi,kotu,orta,iyi,iyi,orta,Evet
+51,kotu,kotu,kotu,kotu,orta,orta,kotu,kotu,cok kotu,kotu,Hayir
+52,iyi,kotu,iyi,orta,iyi,cok iyi,orta,orta,iyi,orta,Evet
+53,iyi,orta,iyi,kotu,cok iyi,cok iyi,orta,orta,orta,iyi,Evet
+54,cok iyi,orta,iyi,kotu,kotu,iyi,kotu,iyi,kotu,orta,Hayir
+55,iyi,orta,kotu,kotu,iyi,iyi,orta,iyi,orta,orta,Evet
+56,cok iyi,kotu,cok kotu,cok iyi,cok iyi,cok iyi,orta,cok iyi,cok iyi,cok iyi,Evet
+57,orta,iyi,iyi,kotu,iyi,iyi,kotu,kotu,iyi,orta,Evet
+58,iyi,orta,kotu,iyi,iyi,iyi,kotu,orta,orta,kotu,Evet
+59,iyi,orta,orta,iyi,iyi,iyi,orta,iyi,iyi,kotu,Evet
+60,iyi,orta,iyi,kotu,iyi,iyi,kotu,orta,iyi,kotu,Evet
+61,orta,iyi,iyi,kotu,orta,iyi,orta,iyi,orta,iyi,Evet
+62,cok iyi,kotu,cok iyi,cok iyi,cok iyi,kotu,iyi,orta,cok iyi,iyi,Evet
+63,iyi,orta,iyi,orta,cok iyi,iyi,orta,orta,iyi,cok iyi,Evet
+64,cok iyi,cok kotu,orta,iyi,iyi,iyi,orta,orta,iyi,iyi,Evet
+65,cok iyi,kotu,iyi,iyi,cok iyi,orta,orta,orta,iyi,iyi,Evet
+66,orta,kotu,iyi,orta,cok iyi,orta,orta,kotu,orta,iyi,Evet
+67,cok iyi,cok kotu,cok iyi,orta,iyi,orta,iyi,orta,orta,iyi,Evet
+68,iyi,iyi,cok iyi,orta,iyi,cok iyi,iyi,orta,orta,cok iyi,Evet
+69,cok iyi,orta,iyi,cok iyi,iyi,orta,cok iyi,orta,iyi,orta,Evet
+70,cok iyi,orta,iyi,cok iyi,orta,iyi,cok iyi,orta,iyi,cok iyi,Evet
+71,cok iyi,kotu,orta,iyi,cok iyi,iyi,orta,orta,cok iyi,iyi,Evet
+72,orta,orta,iyi,iyi,cok iyi,cok iyi,orta,orta,iyi,iyi,Evet
+73,cok iyi,cok iyi,orta,orta,iyi,iyi,orta,iyi,cok iyi,iyi,Evet
+74,orta,orta,orta,orta,kotu,cok kotu,orta,iyi,orta,kotu,Hayir
+75,kotu,kotu,orta,kotu,orta,cok kotu,orta,kotu,orta,kotu,Hayir
+76,iyi,kotu,orta,iyi,orta,iyi,iyi,iyi,orta,iyi,Evet
+77,cok kotu,kotu,kotu,cok kotu,orta,cok kotu,orta,kotu,cok kotu,cok kotu,Hayir
+78,iyi,orta,iyi,iyi,cok iyi,orta,iyi,iyi,iyi,iyi,Evet
+79,orta,iyi,iyi,orta,iyi,kotu,iyi,iyi,iyi,iyi,Evet
+80,iyi,orta,iyi,orta,iyi,iyi,iyi,cok iyi,iyi,iyi,Evet
+81,iyi,orta,iyi,orta,iyi,iyi,iyi,cok iyi,iyi,iyi,Evet
+82,orta,kotu,orta,cok kotu,kotu,kotu,orta,kotu,orta,orta,Hayir
+83,cok iyi,cok iyi,cok iyi,iyi,cok iyi,iyi,iyi,iyi,cok iyi,iyi,Evet
+84,iyi,iyi,orta,orta,orta,iyi,orta,orta,orta,orta,Hayir
+85,orta,iyi,orta,iyi,cok iyi,iyi,orta,iyi,orta,iyi,Evet
+86,iyi,cok iyi,iyi,orta,iyi,iyi,orta,iyi,orta,iyi,Evet
+87,orta,iyi,kotu,orta,iyi,iyi,orta,orta,orta,iyi,Hayir
+88,iyi,iyi,orta,iyi,orta,iyi,iyi,iyi,iyi,iyi,Evet
+89,cok iyi,iyi,iyi,iyi,iyi,orta,iyi,iyi,iyi,iyi,Evet
+90,cok iyi,cok iyi,iyi,iyi,iyi,cok iyi,iyi,iyi,orta,iyi,Evet
+91,iyi,iyi,orta,orta,orta,iyi,orta,iyi,orta,iyi,Evet
+92,orta,orta,orta,iyi,iyi,iyi,iyi,orta,iyi,orta,Hayir
+93,iyi,iyi,iyi,orta,orta,orta,iyi,iyi,iyi,orta,Evet
+94,kotu,orta,kotu,orta,iyi,orta,orta,orta,orta,iyi,Hayir
+95,iyi,cok iyi,iyi,orta,iyi,cok iyi,iyi,cok iyi,cok iyi,iyi,Evet
+96,iyi,iyi,iyi,orta,iyi,orta,iyi,iyi,iyi,orta,Evet
+97,orta,kotu,orta,iyi,kotu,cok kotu,kotu,orta,orta,orta,Hayir
+98,cok iyi,cok iyi,cok iyi,cok iyi,iyi,iyi,cok iyi,iyi,cok iyi,cok iyi,Evet
+99,cok iyi,cok iyi,cok iyi,iyi,cok iyi,cok iyi,iyi,iyi,iyi,cok iyi,Evet
+100,iyi,iyi,iyi,iyi,orta,cok iyi,orta,iyi,cok iyi,iyi,Evet
+101,iyi,orta,orta,orta,kotu,kotu,cok kotu,cok kotu,kotu,kotu,Hayir
+102,iyi,orta,iyi,orta,cok iyi,iyi,cok iyi,cok iyi,iyi,iyi,Evet
+103,orta,iyi,orta,iyi,orta,orta,orta,iyi,orta,iyi,Hayir
+104,orta,iyi,orta,cok iyi,iyi,orta,kotu,orta,iyi,iyi,Evet
+105,orta,iyi,orta,iyi,kotu,orta,kotu,kotu,kotu,orta,Hayir
+106,orta,iyi,orta,iyi,orta,kotu,iyi,orta,iyi,orta,Evet
+107,orta,iyi,orta,kotu,orta,kotu,orta,iyi,iyi,iyi,Evet
+108,orta,iyi,iyi,iyi,iyi,orta,iyi,iyi,orta,iyi,Evet
+109,orta,iyi,orta,iyi,orta,orta,iyi,orta,orta,iyi,Evet
+110,orta,orta,orta,iyi,iyi,iyi,orta,orta,iyi,orta,Evet
+111,orta,orta,orta,iyi,iyi,iyi,orta,orta,iyi,orta,Hayir
+112,iyi,orta,iyi,orta,orta,orta,iyi,orta,iyi,orta,Evet
+113,orta,iyi,orta,iyi,orta,iyi,orta,iyi,orta,iyi,Hayir
+114,kotu,orta,kotu,orta,iyi,orta,orta,orta,kotu,iyi,Hayir
+115,kotu,orta,orta,kotu,iyi,iyi,orta,orta,kotu,kotu,Hayir
+116,orta,orta,orta,iyi,orta,iyi,orta,cok iyi,iyi,iyi,Evet
+117,cok iyi,iyi,iyi,cok iyi,iyi,cok iyi,iyi,cok iyi,iyi,iyi,Evet
+118,cok iyi,iyi,iyi,cok iyi,iyi,cok iyi,iyi,cok iyi,iyi,iyi,Evet
+119,iyi,orta,iyi,iyi,iyi,iyi,cok iyi,iyi,iyi,cok iyi,Evet
+120,iyi,iyi,orta,iyi,iyi,orta,cok iyi,cok iyi,iyi,cok iyi,Evet
+121,orta,iyi,orta,iyi,iyi,orta,iyi,iyi,iyi,iyi,Evet
+122,orta,kotu,orta,orta,orta,kotu,orta,orta,kotu,orta,Hayir
+123,iyi,orta,orta,iyi,iyi,orta,iyi,cok iyi,iyi,cok iyi,Evet
+124,cok iyi,iyi,orta,iyi,iyi,orta,iyi,cok iyi,iyi,cok iyi,Evet
+125,iyi,cok iyi,orta,iyi,iyi,kotu,iyi,cok iyi,iyi,cok iyi,Evet
+126,iyi,iyi,orta,iyi,iyi,orta,iyi,orta,iyi,orta,Evet
+127,orta,orta,iyi,iyi,iyi,kotu,iyi,iyi,iyi,cok iyi,Evet
+128,orta,kotu,orta,orta,orta,cok kotu,orta,kotu,kotu,orta,Hayir
+129,iyi,orta,orta,orta,orta,cok kotu,orta,iyi,kotu,iyi,Hayir
+130,cok iyi,iyi,orta,iyi,iyi,orta,orta,kotu,orta,kotu,Evet
+131,iyi,iyi,iyi,iyi,cok iyi,orta,iyi,iyi,iyi,iyi,Evet
+132,kotu,kotu,kotu,kotu,kotu,cok kotu,kotu,orta,kotu,kotu,Hayir
+133,cok iyi,iyi,orta,iyi,iyi,orta,iyi,iyi,cok iyi,iyi,Evet
+134,iyi,iyi,orta,cok iyi,iyi,orta,iyi,cok iyi,iyi,cok iyi,Evet
+135,orta,iyi,iyi,iyi,iyi,orta,iyi,cok iyi,iyi,cok iyi,Evet
+136,orta,iyi,orta,iyi,iyi,kotu,iyi,iyi,iyi,iyi,Evet
+137,kotu,iyi,orta,iyi,orta,kotu,orta,iyi,orta,iyi,Evet
+138,kotu,orta,orta,orta,orta,cok kotu,kotu,kotu,orta,orta,Hayir
+139,iyi,orta,iyi,cok iyi,iyi,cok iyi,iyi,cok iyi,iyi,cok iyi,Evet
+140,orta,kotu,iyi,iyi,orta,orta,iyi,iyi,orta,iyi,Evet
+141,cok iyi,iyi,iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,Evet
+142,kotu,cok kotu,orta,orta,kotu,kotu,kotu,orta,kotu,orta,Hayir
+143,orta,orta,kotu,iyi,iyi,iyi,orta,iyi,orta,iyi,Evet
+144,iyi,cok iyi,orta,iyi,cok iyi,cok iyi,iyi,iyi,cok iyi,iyi,Evet
+145,cok iyi,orta,iyi,cok iyi,cok iyi,cok iyi,iyi,cok iyi,cok iyi,cok iyi,Evet
+146,orta,kotu,orta,iyi,kotu,kotu,iyi,orta,kotu,iyi,Hayir
+147,iyi,iyi,cok iyi,iyi,cok iyi,iyi,iyi,iyi,cok iyi,iyi,Evet
+148,kotu,cok kotu,orta,orta,kotu,kotu,orta,kotu,kotu,orta,Hayir
+149,iyi,iyi,kotu,cok iyi,iyi,cok iyi,iyi,cok iyi,iyi,cok iyi,Evet
+150,orta,kotu,iyi,orta,orta,iyi,iyi,cok iyi,orta,iyi,Evet
+151,cok iyi,cok iyi,iyi,iyi,cok iyi,cok iyi,iyi,iyi,cok iyi,cok iyi,Evet
+152,iyi,kotu,orta,cok iyi,iyi,iyi,cok iyi,iyi,iyi,orta,Evet
+153,kotu,cok kotu,kotu,orta,kotu,kotu,kotu,orta,kotu,kotu,Hayir
+154,orta,iyi,iyi,iyi,iyi,cok iyi,iyi,iyi,iyi,orta,Evet
+155,cok iyi,cok iyi,iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,cok iyi,Evet
+156,kotu,cok kotu,kotu,orta,kotu,kotu,kotu,kotu,kotu,orta,Hayir
+157,iyi,iyi,cok iyi,iyi,iyi,cok iyi,iyi,cok iyi,iyi,cok iyi,Evet
+158,orta,orta,orta,iyi,iyi,orta,iyi,iyi,orta,iyi,Evet
+159,iyi,cok iyi,iyi,cok iyi,cok iyi,cok iyi,iyi,iyi,cok iyi,cok iyi,Evet
+160,cok iyi,iyi,iyi,cok iyi,cok iyi,cok iyi,iyi,cok iyi,cok iyi,cok iyi,Evet
+161,orta,kotu,kotu,iyi,kotu,kotu,iyi,orta,kotu,iyi,Hayir
+162,iyi,iyi,cok iyi,iyi,cok iyi,iyi,iyi,iyi,cok iyi,iyi,Evet
+163,kotu,cok kotu,orta,orta,kotu,kotu,orta,kotu,kotu,orta,Hayir
+164,iyi,iyi,kotu,cok iyi,iyi,cok iyi,iyi,cok iyi,iyi,cok iyi,Evet
+165,orta,kotu,iyi,orta,orta,iyi,iyi,cok iyi,orta,iyi,Evet
+166,cok iyi,cok iyi,iyi,iyi,cok iyi,cok iyi,iyi,iyi,cok iyi,cok iyi,Evet
+167,iyi,kotu,orta,cok iyi,iyi,iyi,cok iyi,iyi,iyi,orta,Evet
+168,kotu,cok kotu,kotu,orta,kotu,kotu,kotu,orta,kotu,kotu,Hayir
+169,orta,iyi,iyi,iyi,iyi,cok iyi,iyi,iyi,iyi,orta,Evet

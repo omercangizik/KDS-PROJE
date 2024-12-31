@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karar Destek Sistemi</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .navbar {
+            background-color: #1e1e1e;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffa500;
+            text-decoration: none;
+        }
+        /* Sidebar Profile */
+        .navbar .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px; /* Profilin sağ tarafa çok yanaşmaması için sağdaki boşluğu artırın */
+}
+
+.navbar .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px; /* Profil resminin sağındaki boşluğu ayarlayabilirsiniz */
+}
+
+
+        .menu-toggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 250px;
+            height: 100%;
+            background-color: #1e1e1e;
+            overflow-y: auto;
+            transition: 0.3s;
+            padding: 20px;
+            box-shadow: 4px 0 6px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar .close-btn {
+            display: block;
+            text-align: right;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: #ffa500;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #ffa500;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+        .form-group select,
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
+        .form-group button {
+            background-color: #ffa500;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .form-group button:hover {
+            background-color: #e69500;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #1e1e1e;
+            color: #777;
+            font-size: 14px;
+        }
+
+
+
+
+
+        .btn {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ffa500;
+    border: 2px solid #ffa500;
+    border-radius: 8px;
+    padding: 12px 20px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ffa500;
+    border-color: #ffa500;
+}
+
+.btn:active {
+    background-color: #ffa500;
+    border-color: #ffa500;
+}
+
+.btn-primary {
+    background-color: #ffa500;
+    border-color: #ffa500;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <a href="http://localhost:3000/index.html" class="logo">Tedarikçi Karar Destek Sistemi</a>
+        <div class="profile">
+            <!-- <a href="#">Ömer</a>
+            <img src="profil1.png" alt="Profil"> -->
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">✖</span>
+        <ul>
+            <li><a href="http://localhost:3000/index.html">Ana Sayfa</a></li>
+            <li><a href="http://127.0.0.1:5000/">Tedarikçi Değerlendirme</a></li>
+            <li><a href="http://localhost:3000/analiz.html">Raporlama ve Analiz</a></li>
+            <li><a href="http://localhost:3000/tedarikci_yonetim.html">Tedarikçi Yönetimi</a></li>
+            
+            
+            <li><a href="http://localhost:3000/login.html" style="color: red;">Çıkış</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="text-center mb-5">Tedarikçi Tavsiye Tahmin Uygulaması</h1>
+        <form action="/predict" method="POST">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="kalite">Kalite</label>
+                        <select class="form-control" name="kalite" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="hatali_urun">Hatalı Ürün</label>
+                        <select class="form-control" name="hatali_urun" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="fiyat">Fiyat</label>
+                        <select class="form-control" name="fiyat" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="hiz">Hız</label>
+                        <select class="form-control" name="hiz" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="guvenilir_hizmet">Güvenilir Hizmet</label>
+                        <select class="form-control" name="guvenilir_hizmet" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="belge">Belge</label>
+                        <select class="form-control" name="belge" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="talep">Talep</label>
+                        <select class="form-control" name="talep" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="stok">Stok</label>
+                        <select class="form-control" name="stok" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="gecmis_donem">Geçmiş Dönem</label>
+                        <select class="form-control" name="gecmis_donem" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="kapasite">Kapasite</label>
+                        <select class="form-control" name="kapasite" required>
+                            <option value="4">Çok Kötü</option>
+                            <option value="3">Kötü</option>
+                            <option value="2">Orta</option>
+                            <option value="1">İyi</option>
+                            <option value="0">Çok İyi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Tahmin Et</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('form').on('submit', function(event) {
+            event.preventDefault();
+            
+            $.ajax({
+                type: 'POST',
+                url: '/predict',
+                data: $(this).serialize(),
+                success: function(response) {
+                    alert('Tahmin Sonucu: ' + response.tavsiyeniz);
+                }
+            });
+        });
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

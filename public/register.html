@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css"
+        integrity="sha512-IuO+tczf4J43RzbCMEFggCWW5JuX78IrCJRFFBoQEXNvGI6gkUw4OjuwMidiS4Lm9Q2lILzpJwZuMWuSEeT9UQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+        integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-image: url('tedarik.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 600px;
+            /* İstenilen genişliği ayarlayabilirsiniz */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-custom {
+            background-color: #343a43;
+            color: white;
+        }
+
+        .error-message {
+            color: red;
+            display: none; /* Hata mesajını başlangıçta gizle */
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#ekle").click(function () {
+                const yeni_musteri = {
+                    kullanici_adi: $("#kullanici_adi").val(),
+                    sifre: $("#sifre").val(),
+                    eposta: $("#eposta").val(),
+                    adi: $("#adi").val(),
+                    soyadi: $("#soyadi").val(),
+                    tel_no: $("#tel_no").val(),
+                    cinsiyet: $("#cinsiyet").val(),
+                    dogum_tarihi: $("#dogum_tarihi").val()
+                };
+
+                $.ajax({
+                    url: "http://localhost:3000/api/register",
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(yeni_musteri),
+                    success: function (response) {
+                        if (response.success) {
+                            alert("Müşteri başarıyla eklendi.");
+                            redirectToLoginPage();
+                        } else {
+                            $('#errorMessage').text(response.message).show(); // Hata mesajını göster
+                        }
+                    },
+                    error: function (error) {
+                        console.error(error);
+                        $('#errorMessage').text("Bir hata oluştu. Lütfen tekrar deneyin.").show(); // Hata mesajını göster
+                    }
+                });
+            });
+        });
+
+        function redirectToLoginPage() {
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+
+<body>
+    <section class="content">
+        <div class="card" style="background-color: #343a40;">
+            <div class="card-header">
+                <h3 class="card-title" style="color: white;">Kayıt Ol</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-container">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="kullanici_adi">Kullanıcı Adı:</label>
+                            <input type="text" class="form-control" id="kullanici_adi" name="kullanici_adi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sifre">Şifre:</label>
+                            <input type="password" class="form-control" id="sifre" name="sifre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eposta">E-posta:</label>
+                            <input type="email" class="form-control" id="eposta" name="eposta" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adi">Adı:</label>
+                            <input type="text" class="form-control" id="adi" name="adi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="soyadi">Soyadı:</label>
+                            <input type="text" class="form-control" id="soyadi" name="soyadi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel_no">Tel No:</label>
+                            <input type="tel" class="form-control" id="tel_no" name="tel_no" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cinsiyet">Cinsiyet:</label>
+                            <select class="form-control" id="cinsiyet" name="cinsiyet" required>
+                                <option value="" disabled selected>Cinsiyet Seçin</option>
+                                <option value="erkek">Erkek</option>
+                                <option value="kadin">Kadın</option>
+                                <option value="diger">Diğer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dogum_tarihi">Doğum Tarihi:</label>
+                            <input type="date" class="form-control" id="dogum_tarihi" name="dogum_tarihi" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-custom" id="ekle" style="margin-right: 10px;">Ekle</button>
+                            <button type="button" onclick="redirectToLoginPage()" class="btn btn-custom">Giriş Yap</button>
+                        </div>
+                        <div class="error-message" id="errorMessage"></div> <!-- Hata mesajı için alan -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

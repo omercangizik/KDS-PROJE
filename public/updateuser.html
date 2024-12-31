@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Bilgilerini Güncelle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Kullanıcı Bilgilerini Güncelle</h2>
+        <form id="updateUserForm">
+            <div class="mb-3">
+                <label for="kullanici_adi" class="form-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="kullanici_adi" name="kullanici_adi" required>
+            </div>
+            <div class="mb-3">
+                <label for="sifre" class="form-label">Yeni Şifre</label>
+                <input type="password" class="form-control" id="sifre" name="sifre">
+            </div>
+            <div class="mb-3">
+                <label for="eposta" class="form-label">E-posta</label>
+                <input type="email" class="form-control" id="eposta" name="eposta" required>
+            </div>
+            <div class="mb-3">
+                <label for="adi" class="form-label">Adı</label>
+                <input type="text" class="form-control" id="adi" name="adi" required>
+            </div>
+            <div class="mb-3">
+                <label for="soyadi" class="form-label">Soyadı</label>
+                <input type="text" class="form-control" id="soyadi" name="soyadi" required>
+            </div>
+            <div class="mb-3">
+                <label for="tel_no" class="form-label">Telefon Numarası</label>
+                <input type="text" class="form-control" id="tel_no" name="tel_no" required>
+            </div>
+            <div class="mb-3">
+                <label for="cinsiyet" class="form-label">Cinsiyet</label>
+                <select class="form-control" id="cinsiyet" name="cinsiyet" required>
+                    <option value="Erkek">Erkek</option>
+                    <option value="Kadın">Kadın</option>
+                    <option value="Diğer">Diğer</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="dogum_tarihi" class="form-label">Doğum Tarihi</label>
+                <input type="date" class="form-control" id="dogum_tarihi" name="dogum_tarihi" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('updateUserForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = {
+                kullanici_adi: formData.get('kullanici_adi'),
+                sifre: formData.get('sifre'),
+                eposta: formData.get('eposta'),
+                adi: formData.get('adi'),
+                soyadi: formData.get('soyadi'),
+                tel_no: formData.get('tel_no'),
+                cinsiyet: formData.get('cinsiyet'),
+                dogum_tarihi: formData.get('dogum_tarihi')
+            };
+
+            try {
+                const response = await fetch('/api/user/update', {
+    method: 'PUT',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+});
+
+                const result = await response.json();
+                if (result.success) {
+                    alert(result.message);
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+            }
+        });
+    </script>
+</body>
+</html>

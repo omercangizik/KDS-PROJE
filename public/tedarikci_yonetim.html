@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tedarikçi Yönetim Sistemi</title>
+    <style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    color: #ffa500;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #ffa500;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff7f00;
+}
+
+.form-container {
+    display: none;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+.form-container h3 {
+    color: #ffa500;
+    text-align: center;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-container input:focus {
+    border-color: #ffa500;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+table th {
+    background-color: #333;
+    color: #ffa500;
+}
+
+table td {
+    background-color: #222;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+table tr:hover {
+    background-color: #444;
+}
+
+table button {
+    background-color: #ff5555;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+table button:hover {
+    background-color: #ff3333;
+}
+
+#darkModeToggle {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#darkModeToggle:checked ~ body {
+    background-color: #fff;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ .navbar,
+#darkModeToggle:checked ~ .form-container,
+#darkModeToggle:checked ~ table {
+    background-color: #fff;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ table th {
+    background-color: #f1f1f1;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ table td {
+    background-color: #f9f9f9;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+#darkModeToggle:checked ~ table tr:hover {
+    background-color: #ccc;
+}
+
+
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .navbar {
+            background-color: #1e1e1e;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffa500;
+            text-decoration: none;
+        }
+        .navbar .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px; /* Profilin sağ tarafa çok yanaşmaması için sağdaki boşluğu artırın */
+}
+
+.navbar .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px; /* Profil resminin sağındaki boşluğu ayarlayabilirsiniz */
+}
+
+        .menu-toggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 250px;
+            height: 100%;
+            background-color: #1e1e1e;
+            overflow-y: auto;
+            transition: 0.3s;
+            padding: 20px;
+            box-shadow: 4px 0 6px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar .close-btn {
+            display: block;
+            text-align: right;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: #ffa500;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #1e1e1e;
+            color: #777;
+            font-size: 14px;
+        }
+        body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #121212;
+                color: #ffffff;
+            }
+
+            .navbar {
+                background-color: #1e1e1e;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            }
+
+            .navbar .logo {
+                font-size: 20px;
+                font-weight: bold;
+                color: #ffa500;
+                text-decoration: none;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 250px;
+                height: 100%;
+                background-color: #1e1e1e;
+                overflow-y: auto;
+                transition: 0.3s;
+                padding: 20px;
+                box-shadow: 4px 0 6px rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            /* Dropdown Menüsü */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropbtn {
+                background-color: #1e1e1e;
+                color: white;
+                padding: 10px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown:hover .dropbtn {
+                background-color: #ffa500;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #333;
+                min-width: 200px;
+                z-index: 1;
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ffa500;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div class="navbar">
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <a href="#" class="logo">Tedarikçi Karar Destek Sistemi</a>
+            <div class="profile">
+                <a href="updateuser.html">Ömer</a>
+                <img src="profil.png" alt="Profil">
+            </div>
+        </div>
+    
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" onclick="toggleSidebar()">✖</span>
+            <ul>
+                <li><a href="http://localhost:3000/index.html">Ana Sayfa</a></li>
+                <li><a href="http://127.0.0.1:5000/">Tedarikçi Değerlendirme</a></li>
+                <li><a href="http://localhost:3000/analiz.html">Raporlama ve Analiz</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Tedarikçi Yönetimi</a>
+                    <div class="dropdown-content">
+                        <a href="http://localhost:3000/tedarikci_yonetim.html">Kriter Yönetimi</a>
+                        <a href="http://localhost:3000/tedarikci_yonetimi_bilgi.html">Tedarikçi Yönetimi</a>
+                    </div>
+                </li>
+               
+                <li><a href="http://localhost:3000/login.html" style="color: red;">Çıkış</a></li>
+            </ul>
+        </div>
+    <script>
+        async function loadSuppliers() {
+            try {
+                const response = await fetch('/api/suppliers');
+                if (!response.ok) throw new Error("Tedarikçi listesi yüklenemedi.");
+                const suppliers = await response.json();
+                const table = document.getElementById('suppliers-table-body');
+                table.innerHTML = '';
+                suppliers.forEach(supplier => {
+                    table.innerHTML += `
+                        <tr id="supplier-${supplier.tedarikci_id}" data-id="${supplier.tedarikci_id}" data-kalite="${supplier.kalite}" data-hatali_urun="${supplier.hatali_urun}" data-fiyat="${supplier.fiyat}" data-hiz="${supplier.hiz}" data-guvenilir_hizmet="${supplier.guvenilir_hizmet}" data-belge="${supplier.belge}" data-talep="${supplier.talep}" data-stok="${supplier.stok}" data-gecmis_donem="${supplier.gecmis_donem}" data-kapasite="${supplier.kapasite}" data-tavsiye="${supplier.tavsiye}">
+                            <td>${supplier.tedarikci_id}</td>
+                            <td>${supplier.kalite}</td>
+                            <td>${supplier.hatali_urun}</td>
+                            <td>${supplier.fiyat}</td>
+                            <td>${supplier.hiz}</td>
+                            <td>${supplier.guvenilir_hizmet}</td>
+                            <td>${supplier.belge}</td>
+                            <td>${supplier.talep}</td>
+                            <td>${supplier.stok}</td>
+                            <td>${supplier.gecmis_donem}</td>
+                            <td>${supplier.kapasite}</td>
+                            <td>${supplier.tavsiye}</td>
+                            <td>
+                                <button onclick="deleteSupplier(${supplier.tedarikci_id})">Sil</button>
+                                <button onclick="showUpdateSupplierForm(${supplier.tedarikci_id})">Güncelle</button>
+                            </td>
+                        </tr>`;
+                });
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function showAddSupplierForm() {
+            document.getElementById('add-supplier-form').style.display = 'block';
+        }
+
+        function hideAddSupplierForm() {
+            document.getElementById('add-supplier-form').style.display = 'none';
+        }
+
+        async function addSupplier() {
+            const supplier = {
+                kalite: document.getElementById('kalite').value,
+                hatali_urun: document.getElementById('hatali_urun').value,
+                fiyat: document.getElementById('fiyat').value,
+                hiz: document.getElementById('hiz').value,
+                guvenilir_hizmet: document.getElementById('guvenilir_hizmet').value,
+                belge: document.getElementById('belge').value,
+                talep: document.getElementById('talep').value,
+                stok: document.getElementById('stok').value,
+                gecmis_donem: document.getElementById('gecmis_donem').value,
+                kapasite: document.getElementById('kapasite').value,
+                tavsiye: document.getElementById('tavsiye').value
+            };
+
+            // Validation
+            if (Object.values(supplier).includes('')) {
+                alert('Lütfen tüm alanları doldurun.');
+                return;
+            }
+           /*  if (isNaN(supplier.fiyat) || isNaN(supplier.stok) || isNaN(supplier.kapasite)) {
+                alert('Fiyat, Stok ve Kapasite sayısal değerler olmalıdır.');
+                return;
+            } */
+
+            try {
+                const response = await fetch('/api/suppliers', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(supplier)
+                });
+                if (!response.ok) throw new Error("Tedarikçi eklenemedi.");
+                alert('Tedarikçi başarıyla eklendi.');
+                loadSuppliers();
+                hideAddSupplierForm();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        async function deleteSupplier(id) {
+            try {
+                const response = await fetch(`/api/suppliers/${id}`, { method: 'DELETE' });
+                if (!response.ok) throw new Error("Tedarikçi silinemedi.");
+                alert('Tedarikçi başarıyla silindi.');
+                loadSuppliers();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function showUpdateSupplierForm(id) {
+            const supplier = document.querySelector(`#supplier-${id}`);
+            document.getElementById('update-supplier-id').value = supplier.dataset.id;
+            document.getElementById('update-kalite').value = supplier.dataset.kalite;
+            document.getElementById('update-hatali_urun').value = supplier.dataset.hatali_urun;
+            document.getElementById('update-fiyat').value = supplier.dataset.fiyat;
+            document.getElementById('update-hiz').value = supplier.dataset.hiz;
+            document.getElementById('update-guvenilir_hizmet').value = supplier.dataset.guvenilir_hizmet;
+            document.getElementById('update-belge').value = supplier.dataset.belge;
+            document.getElementById('update-talep').value = supplier.dataset.talep;
+            document.getElementById('update-stok').value = supplier.dataset.stok;
+            document.getElementById('update-gecmis_donem').value = supplier.dataset.gecmis_donem;
+            document.getElementById('update-kapasite').value = supplier.dataset.kapasite;
+            document.getElementById('update-tavsiye').value = supplier.dataset.tavsiye;
+
+            document.getElementById('update-supplier-form').style.display = 'block';
+        }
+
+        function hideUpdateSupplierForm() {
+            document.getElementById('update-supplier-form').style.display = 'none';
+        }
+
+        async function updateSupplier() {
+            const id = document.getElementById('update-supplier-id').value;
+            const updatedSupplier = {
+                kalite: document.getElementById('update-kalite').value,
+                hatali_urun: document.getElementById('update-hatali_urun').value,
+                fiyat: document.getElementById('update-fiyat').value,
+                hiz: document.getElementById('update-hiz').value,
+                guvenilir_hizmet: document.getElementById('update-guvenilir_hizmet').value,
+                belge: document.getElementById('update-belge').value,
+                talep: document.getElementById('update-talep').value,
+                stok: document.getElementById('update-stok').value,
+                gecmis_donem: document.getElementById('update-gecmis_donem').value,
+                kapasite: document.getElementById('update-kapasite').value,
+                tavsiye: document.getElementById('update-tavsiye').value
+            };
+
+            try {
+                const response = await fetch(`/api/suppliers/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedSupplier)
+                });
+
+                if (!response.ok) throw new Error("Tedarikçi güncellenemedi.");
+                alert('Tedarikçi başarıyla güncellendi.');
+                loadSuppliers();
+                hideUpdateSupplierForm();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        window.onload = loadSuppliers;
+
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+
+
+
+    </script>
+    
+</head>
+<body>
+    <h1>Tedarikçi Yönetim Sistemi</h1>
+    <button onclick="showAddSupplierForm()">Yeni Tedarikçi Ekle</button>
+    
+        
+    <!-- Add Supplier Form -->
+    <div id="add-supplier-form" class="form-container">
+        <h3>Yeni Tedarikçi Ekle</h3>
+        <form onsubmit="event.preventDefault(); addSupplier();">
+            <input type="text" id="kalite" placeholder="Kalite" required>
+            <input type="text" id="hatali_urun" placeholder="Hatali Ürün" required>
+            <input type="text" id="fiyat" placeholder="Fiyat" required>
+            <input type="text" id="hiz" placeholder="Hiz" required>
+            <input type="text" id="guvenilir_hizmet" placeholder="Guvenilir Hizmet" required>
+            <input type="text" id="belge" placeholder="Belge" required>
+            <input type="text" id="talep" placeholder="Talep" required>
+            <input type="text" id="stok" placeholder="Stok" required>
+            <input type="text" id="gecmis_donem" placeholder="Geçmiş Dönem" required>
+            <input type="text" id="kapasite" placeholder="Kapasite" required>
+            <input type="text" id="tavsiye" placeholder="Tavsiye" required>
+            <button type="submit">Ekle</button>
+            <button type="button" onclick="hideAddSupplierForm()">Kapat</button>
+        </form>
+    </div>
+
+    <!-- Update Supplier Form -->
+    <div id="update-supplier-form" class="form-container">
+        <h3>Tedarikçi Güncelle</h3>
+        <form onsubmit="event.preventDefault(); updateSupplier();">
+            <input type="hidden" id="update-supplier-id">
+            <input type="text" id="update-kalite" placeholder="Kalite" required>
+            <input type="text" id="update-hatali_urun" placeholder="Hatali Ürün" required>
+            <input type="text" id="update-fiyat" placeholder="Fiyat" required>
+            <input type="text" id="update-hiz" placeholder="Hiz" required>
+            <input type="text" id="update-guvenilir_hizmet" placeholder="Guvenilir Hizmet" required>
+            <input type="text" id="update-belge" placeholder="Belge" required>
+            <input type="text" id="update-talep" placeholder="Talep" required>
+            <input type="text" id="update-stok" placeholder="Stok" required>
+            <input type="text" id="update-gecmis_donem" placeholder="Geçmiş Dönem" required>
+            <input type="text" id="update-kapasite" placeholder="Kapasite" required>
+            <input type="text" id="update-tavsiye" placeholder="Tavsiye" required>
+            <button type="submit">Güncelle</button>
+            <button type="button" onclick="hideUpdateSupplierForm()">Kapat</button>
+        </form>
+    </div>
+
+    <!-- Supplier List -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Kalite</th>
+                <th>Hatali Ürün</th>
+                <th>Fiyat</th>
+                <th>Hiz</th>
+                <th>Guvenilir Hizmet</th>
+                <th>Belge</th>
+                <th>Talep</th>
+                <th>Stok</th>
+                <th>Geçmiş Dönem</th>
+                <th>Kapasite</th>
+                <th>Tavsiye</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody id="suppliers-table-body">
+            <!-- Supplier rows will be loaded here -->
+        </tbody>
+    </table>
+</body>
+</html>

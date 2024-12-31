@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tedarikçi Yönetim Sistemi</title>
+    <style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    color: #ffa500;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #ffa500;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff7f00;
+}
+
+.form-container {
+    display: none;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+.form-container h3 {
+    color: #ffa500;
+    text-align: center;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-container input:focus {
+    border-color: #ffa500;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 2px;
+    text-align: center;
+    border: 2px solid #444;
+}
+
+table th {
+    background-color: #333;
+    color: #ffa500;
+}
+
+table td {
+    background-color: #222;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+table tr:hover {
+    background-color: #444;
+}
+
+table button {
+    background-color: #ff5555;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+table button:hover {
+    background-color: #ff3333;
+}
+
+#darkModeToggle {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#darkModeToggle:checked ~ body {
+    background-color: #fff;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ .navbar,
+#darkModeToggle:checked ~ .form-container,
+#darkModeToggle:checked ~ table {
+    background-color: #fff;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ table th {
+    background-color: #f1f1f1;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ table td {
+    background-color: #f9f9f9;
+    color: #121212;
+}
+
+#darkModeToggle:checked ~ table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+#darkModeToggle:checked ~ table tr:hover {
+    background-color: #ccc;
+}
+
+
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .navbar {
+            background-color: #1e1e1e;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffa500;
+            text-decoration: none;
+        }
+        .navbar .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px; /* Profilin sağ tarafa çok yanaşmaması için sağdaki boşluğu artırın */
+}
+
+.navbar .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px; /* Profil resminin sağındaki boşluğu ayarlayabilirsiniz */
+}
+
+        .menu-toggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 250px;
+            height: 100%;
+            background-color: #1e1e1e;
+            overflow-y: auto;
+            transition: 0.3s;
+            padding: 20px;
+            box-shadow: 4px 0 6px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar .close-btn {
+            display: block;
+            text-align: right;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            padding: 10px;
+            display: block;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: #ffa500;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #1e1e1e;
+            color: #777;
+            font-size: 14px;
+        }
+        body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #121212;
+                color: #ffffff;
+            }
+
+            .navbar {
+                background-color: #1e1e1e;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            }
+
+            .navbar .logo {
+                font-size: 20px;
+                font-weight: bold;
+                color: #ffa500;
+                text-decoration: none;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 250px;
+                height: 100%;
+                background-color: #1e1e1e;
+                overflow-y: auto;
+                transition: 0.3s;
+                padding: 20px;
+                box-shadow: 4px 0 6px rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            /* Dropdown Menüsü */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropbtn {
+                background-color: #1e1e1e;
+                color: white;
+                padding: 10px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown:hover .dropbtn {
+                background-color: #ffa500;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #333;
+                min-width: 200px;
+                z-index: 1;
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ffa500;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div class="navbar">
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+            <a href="#" class="logo">Tedarikçi Karar Destek Sistemi</a>
+            <div class="profile">
+                <a href="updateuser.html">Ömer</a>
+                <img src="profil.png" alt="Profil">
+            </div>
+        </div>
+    
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <span class="close-btn" onclick="toggleSidebar()">✖</span>
+            <ul>
+                <li><a href="http://localhost:3000/index.html">Ana Sayfa</a></li>
+                <li><a href="http://127.0.0.1:5000/">Tedarikçi Değerlendirme</a></li>
+                <li><a href="http://localhost:3000/analiz.html">Raporlama ve Analiz</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Tedarikçi Yönetimi</a>
+                    <div class="dropdown-content">
+                        <a href="http://localhost:3000/tedarikci_yonetim.html">Kriter Yönetimi</a>
+                        <a href="http://localhost:3000/tedarikci_yonetimi_bilgi.html">Tedarikçi Yönetimi</a>
+                    </div>
+                </li>
+              
+                <li><a href="http://localhost:3000/login.html" style="color: red;">Çıkış</a></li>
+            </ul>
+        </div>
+    <script>
+        async function loadSuppliers() {
+            try {
+                const response = await fetch('/api/getSupplierInfo');
+                if (!response.ok) throw new Error("Tedarikçi listesi yüklenemedi.");
+                const suppliers = await response.json();
+                const table = document.getElementById('suppliers-table-body');
+                table.innerHTML = '';
+                suppliers.forEach(supplier => {
+                    table.innerHTML += `
+                        <tr id="supplier-${supplier.id}" data-id="${supplier.id}" data-firma_adi="${supplier.firma_adi}" data-adres="${supplier.adres}" data-telefon_numarasi="${supplier.telefon_numarasi}" data-e_posta="${supplier.e_posta}" data-web_sitesi="${supplier.web_sitesi}" data-iletisim_kisisi_adi="${supplier.iletisim_kisisi_adi}" data-pozisyon="${supplier.pozisyon}" data-iletisim_kisisi_telefonu="${supplier.iletisim_kisisi_telefonu}" data-iletisim_kisisi_eposta="${supplier.iletisim_kisisi_eposta}" data-iletisim_kisisi_eposta="${supplier.iletisim_kisisi_eposta}" >
+                            <td>${supplier.id}</td>
+                <td>${supplier.firma_adi}</td>
+                <td>${supplier.adres}</td>
+                <td>${supplier.telefon_numarasi}</td>
+                <td>${supplier.e_posta}</td>
+                <td>${supplier.web_sitesi}</td>
+                <td>${supplier.iletisim_kisisi_adi}</td>
+                <td>${supplier.pozisyon}</td>
+                <td>${supplier.iletisim_kisisi_telefonu}</td>
+                <td>${supplier.iletisim_kisisi_eposta}</td>
+                            <td>
+                                <button onclick="deleteSupplier(${supplier.id})">Sil</button>
+                                <button onclick="showUpdateSupplierForm(${supplier.id})">Güncelle</button>
+                            </td>
+                        </tr>`;
+                });
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function showAddSupplierForm() {
+            document.getElementById('add-supplier-form').style.display = 'block';
+        }
+
+        function hideAddSupplierForm() {
+            document.getElementById('add-supplier-form').style.display = 'none';
+        }
+
+        async function addSupplier() {
+            const supplier = {
+                firma_adi: document.getElementById('firma_adi').value,
+                adres: document.getElementById('adres').value,
+                telefon_numarasi: document.getElementById('telefon_numarasi').value,
+                e_posta: document.getElementById('e_posta').value,
+                web_sitesi: document.getElementById('web_sitesi').value,
+                iletisim_kisisi_adi: document.getElementById('iletisim_kisisi_adi').value,
+                pozisyon: document.getElementById('pozisyon').value,
+                iletisim_kisisi_telefonu: document.getElementById('iletisim_kisisi_telefonu').value,
+                iletisim_kisisi_eposta: document.getElementById('iletisim_kisisi_eposta').value,
+                
+            };
+
+            // Validation
+            if (Object.values(supplier).includes('')) {
+                alert('Lütfen tüm alanları doldurun.');
+                return;
+            }
+           
+
+            try {
+                const response = await fetch('/api/getSupplierInfo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(supplier)
+                });
+                if (!response.ok) throw new Error("Tedarikçi eklenemedi.");
+                alert('Tedarikçi başarıyla eklendi.');
+                loadSuppliers();
+                hideAddSupplierForm();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        async function deleteSupplier(id) {
+            try {
+                const response = await fetch(`/api/getSupplierInfo/${id}`, { method: 'DELETE' });
+                if (!response.ok) throw new Error("Tedarikçi silinemedi.");
+                alert('Tedarikçi başarıyla silindi.');
+                loadSuppliers();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function showUpdateSupplierForm(id) {
+            const supplier = document.querySelector(`#supplier-${id}`);
+            document.getElementById('update-supplier-id').value = supplier.dataset.id;
+            document.getElementById('update-firma_adi').value = supplier.dataset.firma_adi;
+            document.getElementById('update-adres').value = supplier.dataset.adres;
+            document.getElementById('update-telefon_numarasi').value = supplier.dataset.telefon_numarasi;
+            document.getElementById('update-e_posta').value = supplier.dataset.e_posta;
+            document.getElementById('update-web_sitesi').value = supplier.dataset.web_sitesi;
+            document.getElementById('update-iletisim_kisisi_adi').value = supplier.dataset.iletisim_kisisi_adi;
+            document.getElementById('update-pozisyon').value = supplier.dataset.pozisyon;
+            document.getElementById('update-iletisim_kisisi_telefonu').value = supplier.dataset.iletisim_kisisi_telefonu;
+            document.getElementById('update-iletisim_kisisi_eposta').value = supplier.dataset.iletisim_kisisi_eposta;
+            
+
+            document.getElementById('update-supplier-form').style.display = 'block';
+        }
+
+        function hideUpdateSupplierForm() {
+            document.getElementById('update-supplier-form').style.display = 'none';
+        }
+
+        async function updateSupplier() {
+            const id = document.getElementById('update-supplier-id').value;
+            const updatedSupplier = {
+                firma_adi: document.getElementById('update-firma_adi').value,
+                adres: document.getElementById('update-adres').value,
+                telefon_numarasi: document.getElementById('update-telefon_numarasi').value,
+                e_posta: document.getElementById('update-e_posta').value,
+                web_sitesi: document.getElementById('update-web_sitesi').value,
+                iletisim_kisisi_adi: document.getElementById('update-iletisim_kisisi_adi').value,
+                pozisyon: document.getElementById('update-pozisyon').value,
+                iletisim_kisisi_telefonu: document.getElementById('update-iletisim_kisisi_telefonu').value,
+                iletisim_kisisi_eposta: document.getElementById('update-iletisim_kisisi_eposta').value,
+                
+            };
+
+            try {
+                const response = await fetch(`/api/getSupplierInfo/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedSupplier)
+                });
+
+                if (!response.ok) throw new Error("Tedarikçi güncellenemedi.");
+                alert('Tedarikçi başarıyla güncellendi.');
+                loadSuppliers();
+                hideUpdateSupplierForm();
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        window.onload = loadSuppliers;
+
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+
+
+
+    </script>
+    
+</head>
+<body>
+    <h1>Tedarikçi Yönetim Sistemi</h1>
+    <button onclick="showAddSupplierForm()">Yeni Tedarikçi Ekle</button>
+    
+        
+    <!-- Add Supplier Form -->
+    <div id="add-supplier-form" class="form-container">
+        <h3>Yeni Tedarikçi Ekle</h3>
+        <form onsubmit="event.preventDefault(); addSupplier();">
+            <input type="text" id="firma_adi" placeholder="firma_adi" required>
+            <input type="text" id="adres" placeholder="adres" required>
+            <input type="text" id="telefon_numarasi" placeholder="telefon_numarasi" required>
+            <input type="text" id="e_posta" placeholder="e_posta" required>
+            <input type="text" id="web_sitesi" placeholder="web site" required>
+            <input type="text" id="iletisim_kisisi_adi" placeholder="iletisim_kisisi_adi" required>
+            <input type="text" id="pozisyon" placeholder="pozisyon" required>
+            <input type="text" id="iletisim_kisisi_telefonu" placeholder="iletisim_kisisi_telefonu" required>
+            <input type="text" id="iletisim_kisisi_eposta" placeholder="iletisim_kisisi_eposta" required>
+            
+            <button type="submit">Ekle</button>
+            <button type="button" onclick="hideAddSupplierForm()">Kapat</button>
+        </form>
+    </div>
+
+    <!-- Update Supplier Form -->
+    <div id="update-supplier-form" class="form-container">
+        <h3>Tedarikçi Güncelle</h3>
+        <form onsubmit="event.preventDefault(); updateSupplier();">
+            <input type="hidden" id="update-supplier-id">
+            <input type="text" id="update-firma_adi" placeholder="firma_adi" required>
+            <input type="text" id="update-adres" placeholder="Hatali Ürün" required>
+            <input type="text" id="update-telefon_numarasi" placeholder="telefon_numarasi" required>
+            <input type="text" id="update-e_posta" placeholder="e_posta" required>
+            <input type="text" id="update-web_sitesi" placeholder="Guvenilir Hizmet" required>
+            <input type="text" id="update-iletisim_kisisi_adi" placeholder="iletisim_kisisi_adi" required>
+            <input type="text" id="update-pozisyon" placeholder="pozisyon" required>
+            <input type="text" id="update-iletisim_kisisi_telefonu" placeholder="iletisim_kisisi_telefonu" required>
+            <input type="text" id="update-iletisim_kisisi_eposta" placeholder="Geçmiş Dönem" required>
+            <button type="submit">Güncelle</button>
+            <button type="button" onclick="hideUpdateSupplierForm()">Kapat</button>
+        </form>
+    </div>
+
+    <!-- Supplier List -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>firma_adi</th>
+                <th>Hatali Ürün</th>
+                <th>telefon_numarasi</th>
+                <th>e_posta</th>
+                <th>Guvenilir Hizmet</th>
+                <th>iletisim_kisisi_adi</th>
+                <th>pozisyon</th>
+                <th>iletisim_kisisi_telefonu</th>
+                <th>Geçmiş Dönem</th>
+                <th>Kapasite</th>
+
+            </tr>
+        </thead>
+        <tbody id="suppliers-table-body">
+            <!-- Supplier rows will be loaded here -->
+        </tbody>
+    </table>
+</body>
+</html>
