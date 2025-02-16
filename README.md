@@ -19,7 +19,7 @@ MySQL veritabanı kullanılarak tedarikçi verilerinin depolanması ve yönetimi
 Veriler, eksiksiz ve doğru analiz için temizlenmiş ve optimize edilmiştir.
 Zaman ve Maliyet Tasarrufu:
 
-Geleneksel yöntemlere kıyasla, kullanıcıların karar alma sürecinde %40'a kadar zaman tasarrufu sağlanmıştır.
+
 Hedef Kitle
 Bu sistem, özellikle orta ve büyük ölçekli işletmelerin tedarikçi seçim süreçlerini iyileştirmeyi hedeflemektedir. Otomotiv sektörü için 
 geliştirilen model, farklı sektörlerde de kolayca uyarlanabilir yapıdadır.
